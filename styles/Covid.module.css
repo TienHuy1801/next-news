@@ -1,0 +1,29 @@
+.covid {
+  width: 90%;
+  height: auto;
+
+  padding: 10px 10px;
+
+  background-color: rgb(252, 243, 230);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 10px 0;
+
+  background-color: black;
+}
+
+.title {
+  font-weight: 500;
+
+  cursor: pointer;
+
+  margin-bottom: 0;
+}
+
+.title:hover {
+  text-decoration: underline;
+}
