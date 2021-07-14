@@ -6,13 +6,14 @@ import { call, put, takeLatest} from 'redux-saga/effects';
 import { DataCovidLoading } from '../../interface/covid';
 
 async function fetchData() {
-  let dataId = window.localStorage.getItem('covidVN')
-  if (dataId) {
-    return JSON.parse(dataId);
-  } 
   let response = await axios.get("https://api.apify.com/v2/key-value-stores/ZsOpZgeg7dFS1rgfM/records/LATEST");
-  window.localStorage.setItem('covidVN', JSON.stringify(response.data));
-  return response.data;
+  let ans: DataCovid = {
+    infected: response.data.infected,
+    deceased: response.data.deceased,
+    treated: response.data.treated,
+    recovered: response.data.recovered
+  }
+  return ans;
 }
 
 function* fetch() {

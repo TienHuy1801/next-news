@@ -21,7 +21,7 @@ const Card: React.FC<CardType> = ({ article }) => {
               <span>{article.publishedAt}</span>
             </div>
           </div>
-          <div className={style["card__img"]} style={{backgroundImage:`url(${article.urlToImage})`}}></div>
+          <div className={style["card__img"]} style={{backgroundImage:`url(${article.urlToImage ? article.urlToImage : ""})`}}></div>
         </div>
       </Link>
     </>

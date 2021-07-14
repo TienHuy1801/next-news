@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBuilding, faFilm, faFootballBall, faGlobe, faHome, faSave, faStar, faUser } from "@fortawesome/free-solid-svg-icons";
 import { useAppDispatch } from "../store/hook";
 import { actions } from "../store/action";
+import { useRouter } from "next/dist/client/router";
 
 const SiderLeft = () => {
   const [active, setActive] = useState("top-stories");
@@ -14,7 +15,9 @@ const SiderLeft = () => {
       dispatch(actions.newsAction.fetchData("top-stories"));
     }, 10)
   }, [dispatch]);
+  const router = useRouter();
   const handleClick = (id: string) => {
+    router.push('/');
     setActive(id);
     dispatch(actions.newsAction.fetchData(id));
   }
